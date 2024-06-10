@@ -4,7 +4,7 @@
     {
         public static byte[] Compress(byte[] data, ushort window = 32767, byte lookahead = 63)
         {
-            Span<ushort> input = new ushort[(ushort)Math.Ceiling((double)data.Length / 2)];
+            Span<ushort> input = new ushort[(int)Math.Ceiling((double)data.Length / 2)];
             BinaryReader reader = new(new MemoryStream(data));
             int index = 0;
             while (reader.BaseStream.Length >= reader.BaseStream.Position + 2)
